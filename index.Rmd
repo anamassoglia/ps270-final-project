@@ -12,6 +12,4 @@ output:
 ## Project thoughts
 
 I am interested in exploring data related to:
-- political polling accuracy
-- public opinion of political candidates
-- factors that contribute to the success of new businesses 
+political polling accuracy, public opinion of political candidates, factors that contribute to the success of new businesses. I am hoping for this project I can look into something that is applicable to my community either regionally or nationally.
