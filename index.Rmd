@@ -11,4 +11,7 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to political polling, public opinion of candidates, and success of new businesses. 
+I am interested in exploring data related to:
+- political polling accuracy
+- public opinion of political candidates
+- factors that contribute to the success of new businesses 
