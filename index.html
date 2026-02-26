@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv","anes_timeseries_2024_csv_20250808/anes_timeseries_2024_userguidecodebook_20250808.pdf","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1544,10 +1544,62 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I am interested in exploring data related to:
-political polling accuracy, public opinion of political candidates, factors that contribute to the success of new businesses. I am hoping for this project I can look into something that is applicable to my community either regionally or nationally.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="project-proposal">Project proposal</h2>
+<p>My research question is: How are household income and respondent gender related to voting for Kamala Harris vs. Donald Trump the 2024 presidential election? For my final project, I will use the American National Election Studies (ANES) 2024 Time Series Study to examine how social and economic characteristics relate to public opinion toward presidential candidates. My hypothesis is that lower-income respondents and women were more likely to vote for Kamala Harris, while higher-income respondents and men were more likely to vote for the Donald Trump. This is plausible because voters often vote in alignment with their identities, so women may feel more positively toward Kamala Harris. Additionally, lower-income individuals may also be more likely to support Kamala Harris because Democratic policies are often more closely associated with economic redistribution and expanded social programs. My explanatory variables of interest are household income and respondent gender. In ANES 2024, household income is measured using an ordered categorical variable that groups respondents into income brackets (V241555). Because respondents fall into a variety of income categories, there is substantial variation across individuals. Respondent gender is measured using a self-identified gender variable, which also varies across respondents (V242631). This variation in income and gender enables me to examine whether these characteristics are systematically related to vote choice in the 2024 election. My outcome variable is presidential vote choice in 2024 (V242067z), comparing the Democratic candidate Kamala Harris and Republican candidate Donald Trump. I will recode this variable so that 1 represents a vote for the Democratic candidate and 0 represents a vote for the Republican candidate, dropping respondents who did not vote for a major-party candidate. Evidence supporting my hypothesis would be a negative relationship between income and voting for the Kamala Harris, and a positive relationship between being female and voting for the Democratic candidate. Evidence against my hypothesis would include no meaningful relationship or the opposite pattern, such as higher-income respondents or men being more likely to vote for Harris.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span><span class='va'>anes2024</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 × 1,722
+  version      V240001 V200001 V160001_orig V240002a V240002b V240002c
+  &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 ANES2024Tim…  140001  200015       401318        2        2        2
+2 ANES2024Tim…  140002  200022       300261        2        2        2
+3 ANES2024Tim…  140003  200039       400181        2        2        2
+4 ANES2024Tim…  140004  200046       300171        2        2        2
+5 ANES2024Tim…  140005  200053       405145        2        2        2
+6 ANES2024Tim…  140006  200060       400374        2        2        2
+# ℹ 1,715 more variables: V240003 &lt;dbl&gt;, V240101a &lt;dbl&gt;,
+#   V240101b &lt;dbl&gt;, V240101c &lt;dbl&gt;, V240101d &lt;dbl&gt;, V240102a &lt;dbl&gt;,
+#   V240102b &lt;dbl&gt;, V240102c &lt;dbl&gt;, V240102d &lt;dbl&gt;, V240103a &lt;dbl&gt;,
+#   V240103b &lt;dbl&gt;, V240103c &lt;dbl&gt;, V240103d &lt;dbl&gt;, V240104a &lt;dbl&gt;,
+#   V240104b &lt;dbl&gt;, V240104c &lt;dbl&gt;, V240104d &lt;dbl&gt;, V240105a &lt;dbl&gt;,
+#   V240105b &lt;dbl&gt;, V240105c &lt;dbl&gt;, V240105d &lt;dbl&gt;, V240106a &lt;dbl&gt;,
+#   V240106b &lt;dbl&gt;, V240106c &lt;dbl&gt;, V240106d &lt;dbl&gt;, V240107a &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='st'>"V242067z"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='st'>"V241555"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='st'>"V242631"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>anes2024_small</span> <span class='op'>&lt;-</span> <span class='va'>anes2024</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V242067z</span>, <span class='va'>V241555</span>, <span class='va'>V242631</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>anes2024_small</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 × 3
+  V242067z V241555 V242631
+     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1       -2      -3      -1
+2       -2      -3      -1
+3       -2      -3      -1
+4       -2      -3      -1
+5       -2      -3      -1
+6       -2      -3      -1</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
