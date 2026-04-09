@@ -68,4 +68,34 @@ ggplot(gender_education_summary, aes(x = education, y = harris_pct, fill = gende
   scale_y_continuous(limits = c(0, 100)) +
   scale_fill_manual(values = c("Male" = "steelblue", "Female" = "indianred")) 
 ```
+## Analysis
 
+```{r}
+fit_1 <- lm(vote_dem ~ education + gender, data = anes2024_clean)
+
+fit_1 |>
+  broom::tidy() 
+```
+```{r}
+fit_1 |>
+  broom::tidy() |>
+  select(term, estimate, p.value) |>
+  mutate(term = case_when(
+    term == "(Intercept)" ~ "Intercept (High school/GED, Female)",
+    term == "educationSome college" ~ "Some college",
+    term == "educationCollege graduate" ~ "College graduate",
+    term == "educationMaster's/PhD" ~ "Master's/PhD",
+    term == "genderMale" ~ "Male"
+  )) |>
+  knitr::kable(digits = 3, col.names = c("Term", "Estimate", "P-value"))
+```
+
+The figure above shows Harris vote share for the 2024 election broken down by education level and gender. Across all four education groups, women voted for Harris at substantially higher rates than men, while the pattern across education levels is less consistent than my hypothesis predicted. 
+
+To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in the table above. The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002). When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents.
+
+In contrast, none of the education coefficients were statistically significant. Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance.
+
+These results partially support my hypothesis. The predicted gender gap confirmed that women were more likely to vote for Harris. However, there is no strong evidence of an educational predictor for Harris support in this sample, which goes against my hypothesis that higher education would predict Harris voting. In fact high school/GED respondents showed some of the highest support for Harris when looking at my visualization. 
+
+It should be noted that my analysis is limited to the 440 respondents in the ANES sample who voted for a major-party candidate and had complete education and gender data. Respondents with missing data, those who did not identify as male or female, and those who voted third-party were excluded, which may affect how representative these results are of the 2024 election as a whole.
