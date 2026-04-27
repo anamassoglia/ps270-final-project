@@ -41,13 +41,7 @@ Evidence supporting my hypothesis would be a positive relationship between educa
 #| include: false
 library(tidyverse)
 anes2024 <- read_csv("anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv")
-head(anes2024)
-```
-```{r}
-#| include: false
-"V242067" %in% names(anes2024)
-"V245015" %in% names(anes2024)
-"V242631" %in% names(anes2024)
+
 ```
 
 
@@ -55,7 +49,6 @@ head(anes2024)
 #| include: false
 anes2024_small <- anes2024 |>
   select(V242067, V245015, V242631)
-head(anes2024_small)
 ```
 
 
@@ -79,7 +72,6 @@ anes2024_clean <- anes2024_small |>
 education = factor(education, levels = c(
   "High school/GED", "Some college", "College graduate", "Master's/PhD"
 )))
-anes2024_clean
 ```
 
 
@@ -126,8 +118,6 @@ Figure 2 displays Harris vote share broken down by education level and gender. E
 #| include: false
 fit_1 <- lm(vote_dem ~ education + gender, data = anes2024_clean)
 
-fit_1 |>
-  broom::tidy() 
 ```
 
 #### Table 1
@@ -167,7 +157,8 @@ modelsummary(
     "educationCollege graduate" = "College graduate",
     "educationMaster's/PhD" = "Master's/PhD"
   ),
-  title = "Table 2: Comparing Models of Harris Vote Choice"
+  title = "Table 2: Comparing Models of Harris Vote Choice",
+  gof_omit = "IC|Log|Adj|F|RMSE"
 )
 ```
 
@@ -190,6 +181,9 @@ These results partially support my hypothesis. The predicted gender gap confirme
 It should be noted that my analysis is limited to the 440 respondents in the ANES sample who voted for a major-party candidate and had complete education and gender data. Respondents with missing gender/education data, those who did not identify as male or female, and those who voted third-party were excluded, which may affect how representative these results are of the 2024 election as a whole.
 
 Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential omitted variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.
+
+##### AI Disclosure
+AI was used in the specific instance of inquiring about how to remove values that were not needed in my analysis. The suggestion was using gof_omit = "IC|Log|Adj|F|RMSE" to clean up the second table. 
 
 ## Code
 

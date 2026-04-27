@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv","anes_timeseries_2024_csv_20250808/anes_timeseries_2024_userguidecodebook_20250808.pdf","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv","anes_timeseries_2024_csv_20250808/anes_timeseries_2024_userguidecodebook_20250808.pdf","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/header-attrs-2.31/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1563,13 +1563,13 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>Evidence supporting my hypothesis would be a positive relationship between education level and voting for Kamala Harris, and a positive relationship between being female and voting for the Democratic candidate. Evidence against my hypothesis would include no meaningful relationship or the opposite pattern, such as lower-educated respondents or men being more likely to vote for Harris.</p>
 <h4 id="figure-1">Figure 1</h4>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" alt="" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-5-1.png" alt="" width="624" /></p>
 </div>
 <p>Figure 1 shows the distribution of presidential vote choice among the 440 ANES respondents included in this analysis. Roughly 56% voted for Harris and 44% for Trump. This sample skews Democratic relative to the actual 2024 election outcome which was a Trump victory. This is a known limitation of the ANES survey design and should be kept in mind when interpreting the results.</p>
 <h2 id="analysis">Analysis</h2>
 <h4 id="figure-2">Figure 2</h4>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" alt="" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" alt="" width="624" /></p>
 </div>
 <p>Figure 2 displays Harris vote share broken down by education level and gender. Each bar represents the percentage of respondents in that education and gender group who voted for Harris. The dashed line at 50% indicates the threshold for majority support.</p>
 <h4 id="table-1">Table 1</h4>
@@ -1716,36 +1716,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <td>0.005</td>
 <td>0.025</td>
 </tr>
-<tr class="odd">
-<td>R2 Adj.</td>
-<td>0.018</td>
-<td>-0.002</td>
-<td>0.016</td>
-</tr>
-<tr class="even">
-<td>AIC</td>
-<td>630.0</td>
-<td>641.0</td>
-<td>633.7</td>
-</tr>
-<tr class="odd">
-<td>BIC</td>
-<td>642.3</td>
-<td>661.4</td>
-<td>658.2</td>
-</tr>
-<tr class="even">
-<td>Log.Lik.</td>
-<td>-312.017</td>
-<td>-315.494</td>
-<td>-310.846</td>
-</tr>
-<tr class="odd">
-<td>RMSE</td>
-<td>0.49</td>
-<td>0.50</td>
-<td>0.49</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -1758,19 +1728,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p>These results partially support my hypothesis. The predicted gender gap confirmed that women were more likely to vote for Harris. However, there is no strong evidence of an educational predictor for Harris support in this sample, which goes against my hypothesis that higher education would predict Harris voting. In fact, high school/GED respondents showed some of the highest support for Harris when looking at my visualization.</p>
 <p>It should be noted that my analysis is limited to the 440 respondents in the ANES sample who voted for a major-party candidate and had complete education and gender data. Respondents with missing gender/education data, those who did not identify as male or female, and those who voted third-party were excluded, which may affect how representative these results are of the 2024 election as a whole.</p>
 <p>Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential omitted variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.</p>
+<h5 id="ai-disclosure">AI Disclosure</h5>
+<p>AI was used in the specific instance of inquiring about how to remove values that were not needed in my analysis. The suggestion was using gof_omit = “IC|Log|Adj|F|RMSE” to clean up the second table.</p>
 <h2 id="code">Code</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
 <span><span class='va'>anes2024</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"anes_timeseries_2024_csv_20250808/anes_timeseries_2024_csv_20250808.csv"</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span>
-<span><span class='st'>"V242067"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span>
-<span><span class='st'>"V245015"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span>
-<span><span class='st'>"V242631"</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>anes2024</span><span class='op'>)</span></span>
+<span></span>
 <span><span class='va'>anes2024_small</span> <span class='op'>&lt;-</span> <span class='va'>anes2024</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>V242067</span>, <span class='va'>V245015</span>, <span class='va'>V242631</span><span class='op'>)</span></span>
-<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>anes2024_small</span><span class='op'>)</span></span>
 <span><span class='va'>anes2024_clean</span> <span class='op'>&lt;-</span> <span class='va'>anes2024_small</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span> </span>
 <span>    <span class='va'>V242067</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span>,</span>
@@ -1789,7 +1757,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>education <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>education</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
 <span>  <span class='st'>"High school/GED"</span>, <span class='st'>"Some college"</span>, <span class='st'>"College graduate"</span>, <span class='st'>"Master's/PhD"</span></span>
 <span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>anes2024_clean</span></span>
 <span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>anes2024_clean</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>vote_dem</span>, labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Trump"</span>, <span class='st'>"Harris"</span><span class='op'>)</span><span class='op'>)</span>,</span>
 <span>                            fill <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>vote_dem</span>, labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Trump"</span>, <span class='st'>"Harris"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
@@ -1818,8 +1785,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='va'>fit_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>vote_dem</span> <span class='op'>~</span> <span class='va'>education</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>anes2024_clean</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='va'>fit_1</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> </span>
-<span><span class='va'>fit_1</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span>, <span class='va'>std.error</span>, <span class='va'>p.value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>term <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case-and-replace-when.html'>case_when</a></span><span class='op'>(</span></span>
@@ -1846,7 +1811,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    <span class='st'>"educationCollege graduate"</span> <span class='op'>=</span> <span class='st'>"College graduate"</span>,</span>
 <span>    <span class='st'>"educationMaster's/PhD"</span> <span class='op'>=</span> <span class='st'>"Master's/PhD"</span></span>
 <span>  <span class='op'>)</span>,</span>
-<span>  title <span class='op'>=</span> <span class='st'>"Table 2: Comparing Models of Harris Vote Choice"</span></span>
+<span>  title <span class='op'>=</span> <span class='st'>"Table 2: Comparing Models of Harris Vote Choice"</span>,</span>
+<span>  gof_omit <span class='op'>=</span> <span class='st'>"IC|Log|Adj|F|RMSE"</span></span>
 <span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
