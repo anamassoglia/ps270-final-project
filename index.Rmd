@@ -15,7 +15,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### Research Question and Hypothesis 
 
-My research question is: How are respondent education level and gender related to voting for Kamala Harris vs. Donald Trump in the 2024 presidential election? For my final project, I will use the American National Election Studies (ANES) 2024 Time Series Study to examine how social and demographic characteristics relate to public opinion toward presidential candidates. **My hypothesis is that higher-educated (college+) respondents and women were more likely to vote for Kamala Harris, while lower-educated (high school only) respondents and men were more likely to vote for Donald Trump.** This is plausible because voters often vote in alignment with their identities, so women may feel more positively toward Kamala Harris. Additionally, higher-educated individuals may also be more likely to support Harris because Democratic candidates have increasingly drawn support from college-educated voters, who tend to prioritize issues such as climate policy and social equity. **My independent variables of interest are respondent education level and respondent gender.** **My dependent variable is vote choice for either Harris or Trump.** 
+My research question is: How are respondent education level and gender related to voting for Kamala Harris vs. Donald Trump in the 2024 presidential election? For my project, I used the American National Election Studies (ANES) 2024 Time Series Study to examine how social and demographic characteristics relate to public opinion toward presidential candidates.
+
+**My hypothesis is that higher-educated (college+) respondents and women were more likely to vote for Kamala Harris, while lower-educated (high school only) respondents and men were more likely to vote for Donald Trump.** This is plausible because voters often vote in alignment with their identities, so women may feel more positively toward Kamala Harris. Additionally, higher-educated individuals may also be more likely to support Harris because Democratic candidates have increasingly drawn support from college-educated voters, who tend to prioritize issues such as climate policy and social equity. 
+
+**My independent variables of interest are respondent education level and respondent gender.**
+
+**My dependent variable is vote choice for either Harris or Trump.** 
 
 ### Why is this important?
 
