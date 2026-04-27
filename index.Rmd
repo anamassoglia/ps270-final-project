@@ -1,7 +1,7 @@
 ---
-title: "PS270 Final Project"
+title: "Gender, Education and Vote Choice in the 2024 Presidential Election"
 author: "Ana Massoglia"
-description: "My final project"
+description: "An analysis of the 2024 ANES Time Series Study"
 output:
   distill::distill_article:
     self_contained: false
