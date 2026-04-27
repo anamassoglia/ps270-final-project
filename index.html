@@ -1498,7 +1498,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="index_files/header-attrs-2.30/header-attrs.js"></script>
+  <script src="index_files/header-attrs-2.31/header-attrs.js"></script>
   <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="index_files/popper-2.6.0/popper.min.js"></script>
   <link href="index_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1624,15 +1624,140 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </table>
 </div>
 <p>This table displays regression coefficients estimating the relationship between education level, gender and the probability of voting for Harris. The reference category is high school/GED educated female respondents. Estimates represent percentage point differences in the probability of voting for Harris relative to the reference group.</p>
+<h3 id="additional-analysis">Additional Analysis</h3>
+<h4 id="table-2">Table 2</h4>
+<div class="layout-chunk" data-layout="l-body">
+<table style="width:97%;">
+<caption>Table 2: Comparing Models of Harris Vote Choice</caption>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Gender Only</th>
+<th>Education Only</th>
+<th>Gender + Education</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(Intercept)</td>
+<td>0.624</td>
+<td>0.632</td>
+<td>0.692</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.033)</td>
+<td>(0.114)</td>
+<td>(0.115)</td>
+</tr>
+<tr class="odd">
+<td>Male</td>
+<td>-0.141</td>
+<td></td>
+<td>-0.144</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.047)</td>
+<td></td>
+<td>(0.047)</td>
+</tr>
+<tr class="odd">
+<td>Some college</td>
+<td></td>
+<td>-0.065</td>
+<td>-0.058</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>(0.119)</td>
+<td>(0.118)</td>
+</tr>
+<tr class="odd">
+<td>College graduate</td>
+<td></td>
+<td>-0.127</td>
+<td>-0.123</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>(0.124)</td>
+<td>(0.122)</td>
+</tr>
+<tr class="odd">
+<td>Master’s/PhD</td>
+<td></td>
+<td>-0.048</td>
+<td>-0.030</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>(0.126)</td>
+<td>(0.125)</td>
+</tr>
+<tr class="odd">
+<td>Num.Obs.</td>
+<td>440</td>
+<td>440</td>
+<td>440</td>
+</tr>
+<tr class="even">
+<td>R2</td>
+<td>0.020</td>
+<td>0.005</td>
+<td>0.025</td>
+</tr>
+<tr class="odd">
+<td>R2 Adj.</td>
+<td>0.018</td>
+<td>-0.002</td>
+<td>0.016</td>
+</tr>
+<tr class="even">
+<td>AIC</td>
+<td>630.0</td>
+<td>641.0</td>
+<td>633.7</td>
+</tr>
+<tr class="odd">
+<td>BIC</td>
+<td>642.3</td>
+<td>661.4</td>
+<td>658.2</td>
+</tr>
+<tr class="even">
+<td>Log.Lik.</td>
+<td>-312.017</td>
+<td>-315.494</td>
+<td>-310.846</td>
+</tr>
+<tr class="odd">
+<td>RMSE</td>
+<td>0.49</td>
+<td>0.50</td>
+<td>0.49</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="discussion-of-results">Discussion of Results</h2>
 <p>Figure 2 shows Harris vote share for the 2024 election broken down by education level and gender. Across all four education groups, women voted for Harris at substantially higher rates than men, while the pattern across education levels is less consistent than my hypothesis predicted.</p>
-<p>To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. <strong>The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).</strong> When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level.</p>
-<p><strong>In contrast, none of the education coefficients were statistically significant.</strong> Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance. Therefore, I fail to reject the null hypothesis for all education coefficients.</p>
+<p>To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. <strong>The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).</strong> When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level. This effect is robust across model specifications, as shown in Table 2, the gender coefficient remains nearly identical (-0.141 vs. -0.144) whether or not education is included in the model.</p>
+<p><strong>In contrast, none of the education coefficients were statistically significant.</strong> Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance. Therefore, I fail to reject the null hypothesis for all education coefficients. This null result also holds in the education-only model shown in Table 2, confirming that the lack of educational effect is not driven by its correlation with gender.</p>
 <p>This analysis is cross-sectional and observational, meaning education and gender were not randomly assigned. Therefore, the gender coefficient cannot be interpreted as a causal effect. There are likely confounding variables. For example, party identification is a strong predictor of both gender and vote choice, and omitting it means the gender coefficient may be absorbing some of that variation. Age and race are additional potential confounders. To make a stronger causal claim, one would need either an experimental design or a more complete model that controls for these variables.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>These results partially support my hypothesis. The predicted gender gap confirmed that women were more likely to vote for Harris. However, there is no strong evidence of an educational predictor for Harris support in this sample, which goes against my hypothesis that higher education would predict Harris voting. In fact, high school/GED respondents showed some of the highest support for Harris when looking at my visualization.</p>
 <p>It should be noted that my analysis is limited to the 440 respondents in the ANES sample who voted for a major-party candidate and had complete education and gender data. Respondents with missing gender/education data, those who did not identify as male or female, and those who voted third-party were excluded, which may affect how representative these results are of the 2024 election as a whole.</p>
-<p>Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.</p>
+<p>Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential omitted variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.</p>
 <h2 id="code">Code</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1655,7 +1780,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
 <span>    vote_dem <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>V242067</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>,</span>
 <span>    gender <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>V242631</span> <span class='op'>==</span> <span class='fl'>1</span>, <span class='st'>"Male"</span>, <span class='st'>"Female"</span><span class='op'>)</span>,</span>
-<span>    education <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>    education <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case-and-replace-when.html'>case_when</a></span><span class='op'>(</span></span>
 <span>  <span class='va'>V245015</span> <span class='op'>==</span> <span class='fl'>3</span>  <span class='op'>~</span> <span class='st'>"High school/GED"</span>,</span>
 <span>  <span class='va'>V245015</span> <span class='op'>==</span> <span class='fl'>4</span>  <span class='op'>~</span> <span class='st'>"Some college"</span>,</span>
 <span>  <span class='va'>V245015</span> <span class='op'>==</span> <span class='fl'>5</span>  <span class='op'>~</span> <span class='st'>"College graduate"</span>,</span>
@@ -1697,14 +1822,32 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span><span class='va'>fit_1</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'>broom</span><span class='fu'>::</span><span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span>, <span class='va'>std.error</span>, <span class='va'>p.value</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>term <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>term <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case-and-replace-when.html'>case_when</a></span><span class='op'>(</span></span>
 <span>    <span class='va'>term</span> <span class='op'>==</span> <span class='st'>"(Intercept)"</span> <span class='op'>~</span> <span class='st'>"Intercept (High school/GED, Female)"</span>,</span>
 <span>    <span class='va'>term</span> <span class='op'>==</span> <span class='st'>"educationSome college"</span> <span class='op'>~</span> <span class='st'>"Some college"</span>,</span>
 <span>    <span class='va'>term</span> <span class='op'>==</span> <span class='st'>"educationCollege graduate"</span> <span class='op'>~</span> <span class='st'>"College graduate"</span>,</span>
 <span>    <span class='va'>term</span> <span class='op'>==</span> <span class='st'>"educationMaster's/PhD"</span> <span class='op'>~</span> <span class='st'>"Master's/PhD"</span>,</span>
 <span>    <span class='va'>term</span> <span class='op'>==</span> <span class='st'>"genderMale"</span> <span class='op'>~</span> <span class='st'>"Male"</span></span>
 <span>  <span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Term"</span>, <span class='st'>"Estimate"</span>, <span class='st'>"Standard Error"</span>, <span class='st'>"P-value"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+<span>  <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span>digits <span class='op'>=</span> <span class='fl'>3</span>, col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Term"</span>, <span class='st'>"Estimate"</span>, <span class='st'>"Standard Error"</span>, <span class='st'>"P-value"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://modelsummary.com'>modelsummary</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>fit_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>vote_dem</span> <span class='op'>~</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>anes2024_clean</span><span class='op'>)</span></span>
+<span><span class='va'>fit_3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>vote_dem</span> <span class='op'>~</span> <span class='va'>education</span>, data <span class='op'>=</span> <span class='va'>anes2024_clean</span><span class='op'>)</span></span>
+<span><span class='va'>fit_4</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>vote_dem</span> <span class='op'>~</span> <span class='va'>education</span> <span class='op'>+</span> <span class='va'>gender</span>, data <span class='op'>=</span> <span class='va'>anes2024_clean</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://modelsummary.com/man/modelsummary.html'>modelsummary</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"Gender Only"</span> <span class='op'>=</span> <span class='va'>fit_2</span>, </span>
+<span>       <span class='st'>"Education Only"</span> <span class='op'>=</span> <span class='va'>fit_3</span>, </span>
+<span>       <span class='st'>"Gender + Education"</span> <span class='op'>=</span> <span class='va'>fit_4</span><span class='op'>)</span>,</span>
+<span>  coef_rename <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span></span>
+<span>    <span class='st'>"genderMale"</span> <span class='op'>=</span> <span class='st'>"Male"</span>,</span>
+<span>    <span class='st'>"educationSome college"</span> <span class='op'>=</span> <span class='st'>"Some college"</span>,</span>
+<span>    <span class='st'>"educationCollege graduate"</span> <span class='op'>=</span> <span class='st'>"College graduate"</span>,</span>
+<span>    <span class='st'>"educationMaster's/PhD"</span> <span class='op'>=</span> <span class='st'>"Master's/PhD"</span></span>
+<span>  <span class='op'>)</span>,</span>
+<span>  title <span class='op'>=</span> <span class='st'>"Table 2: Comparing Models of Harris Vote Choice"</span></span>
+<span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

@@ -147,13 +147,38 @@ fit_1 |>
 ```
 This table displays regression coefficients estimating the relationship between education level, gender and the probability of voting for Harris. The reference category is high school/GED educated female respondents. Estimates represent percentage point differences in the probability of voting for Harris relative to the reference group.
 
+### Additional Analysis
+
+#### Table 2
+```{r}
+library(modelsummary)
+
+fit_2 <- lm(vote_dem ~ gender, data = anes2024_clean)
+fit_3 <- lm(vote_dem ~ education, data = anes2024_clean)
+fit_4 <- lm(vote_dem ~ education + gender, data = anes2024_clean)
+
+modelsummary(
+  list("Gender Only" = fit_2, 
+       "Education Only" = fit_3, 
+       "Gender + Education" = fit_4),
+  coef_rename = c(
+    "genderMale" = "Male",
+    "educationSome college" = "Some college",
+    "educationCollege graduate" = "College graduate",
+    "educationMaster's/PhD" = "Master's/PhD"
+  ),
+  title = "Table 2: Comparing Models of Harris Vote Choice"
+)
+```
+
+
 ## Discussion of Results 
 
 Figure 2 shows Harris vote share for the 2024 election broken down by education level and gender. Across all four education groups, women voted for Harris at substantially higher rates than men, while the pattern across education levels is less consistent than my hypothesis predicted. 
 
-To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. **The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).** When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level.
+To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. **The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).** When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level. This effect is robust across model specifications, as shown in Table 2, the gender coefficient remains nearly identical (-0.141 vs. -0.144) whether or not education is included in the model.
 
-**In contrast, none of the education coefficients were statistically significant.** Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance. Therefore, I fail to reject the null hypothesis for all education coefficients.
+**In contrast, none of the education coefficients were statistically significant.** Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance. Therefore, I fail to reject the null hypothesis for all education coefficients. This null result also holds in the education-only model shown in Table 2, confirming that the lack of educational effect is not driven by its correlation with gender.
 
 This analysis is cross-sectional and observational, meaning education and gender were not randomly assigned. Therefore, the gender coefficient cannot be interpreted as a causal effect. There are likely confounding variables. For example, party identification is a strong predictor of both gender and vote choice, and omitting it means the gender coefficient may be absorbing some of that variation. Age and race are additional potential confounders. To make a stronger causal claim, one would need either an experimental design or a more complete model that controls for these variables.
 
@@ -164,7 +189,7 @@ These results partially support my hypothesis. The predicted gender gap confirme
 
 It should be noted that my analysis is limited to the 440 respondents in the ANES sample who voted for a major-party candidate and had complete education and gender data. Respondents with missing gender/education data, those who did not identify as male or female, and those who voted third-party were excluded, which may affect how representative these results are of the 2024 election as a whole.
 
-Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.
+Additionally, the cross-sectional design means causal claims cannot be made. The most significant threat to inference is potential omitted variable bias. Party identification strongly predicts vote choice and correlates with both gender and education, so the estimated coefficients likely reflect partisan sorting rather than independent demographic effects. If given more time, I would improve this analysis by controlling for party identification, race and age.
 
 ## Code
 
