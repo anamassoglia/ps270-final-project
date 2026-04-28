@@ -19,9 +19,6 @@ My research question is: How are respondent education level and gender related t
 
 **My hypothesis is that higher-educated (college+) respondents and women were more likely to vote for Kamala Harris, while lower-educated (high school only) respondents and men were more likely to vote for Donald Trump.** This is plausible because voters often vote in alignment with their identities, so women may feel more positively toward Kamala Harris. Additionally, higher-educated individuals may also be more likely to support Harris because Democratic candidates have increasingly drawn support from college-educated voters, who tend to prioritize issues such as climate policy and social equity. 
 
-**My independent variables of interest are respondent education level and respondent gender.**
-
-**My dependent variable is vote choice for either Harris or Trump.** 
 
 ### Why is this important?
 
@@ -30,6 +27,10 @@ Understanding how demographic characteristics like gender and education relate t
 ## Data
 
 ### Variables and Coding Explanation
+
+**My independent variables of interest are respondent education level and respondent gender.**
+
+**My dependent variable is vote choice for either Harris or Trump.**
 
 In ANES 2024, **education** is measured using a self-reported categorical variable that groups respondents by their highest level of educational attainment (V245015). Because respondents fall into a variety of education categories ranging from high school to post-graduate degrees, there is substantial variation across individuals. 
 
@@ -167,17 +168,17 @@ modelsummary(
   gof_omit = "IC|Log|Adj|F|RMSE"
 )
 ```
-
+Table 2 presents three separate OLS regression models to assess whether the gender and education effects hold independently of one another. Model 1 includes only gender, Model 2 includes only education and Model 3 includes both predictors. The reference category in all models is high school/GED educated female respondents.
 
 ## Discussion of Results 
 
 Figure 2 shows Harris vote share for the 2024 election broken down by education level and gender. Across all four education groups, women voted for Harris at substantially higher rates than men, while the pattern across education levels is less consistent than my hypothesis predicted. 
 
-To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. **The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).** When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level. This effect is robust across model specifications, as shown in Table 2, the gender coefficient remains nearly identical (-0.141 vs. -0.144) whether or not education is included in the model.
+To examine these relationships, I ran a linear regression of Harris vote choice on education level and gender. The results are shown in Table 1. **The regression confirms that gender is a strong and significant predictor of voting for Harris (p = 0.002).** When holding education constant, male respondents were 14.4 percentage points less likely to vote for Harris than female respondents. I can reject the null hypothesis of no gender effect at the 0.05 significance level. This effect is shown across model specifications, as shown in Table 2, the gender coefficient remains nearly identical (-0.141 vs. -0.144) whether or not education is included in the model.
 
 **In contrast, none of the education coefficients were statistically significant.** Compared to high school/GED respondents, those with some college, a college degree, or a graduate degree do not show meaningfully different rates of Harris support once we account for the p-values. The largest education coefficient is for college graduates (-0.123), but this has a p-value of 0.316, meaning we cannot rule out that this pattern is due to chance. Therefore, I fail to reject the null hypothesis for all education coefficients. This null result also holds in the education-only model shown in Table 2, confirming that the lack of educational effect is not driven by its correlation with gender.
 
-This analysis is cross-sectional and observational, meaning education and gender were not randomly assigned. Therefore, the gender coefficient cannot be interpreted as a causal effect. There are likely confounding variables. For example, party identification is a strong predictor of both gender and vote choice, and omitting it means the gender coefficient may be absorbing some of that variation. Age and race are additional potential confounders. To make a stronger causal claim, one would need either an experimental design or a more complete model that controls for these variables.
+This analysis is cross-sectional and observational, meaning education and gender were not randomly assigned. Therefore, the gender coefficient cannot be interpreted as a causal effect. There are likely confounding variables. For example, party identification is a strong predictor of both gender and vote choice, and excluding it means the gender coefficient may be absorbing some of that variation. Age and race are additional potential confounders. To make a stronger causal claim, I would need either an experimental design or a more complete model that controls for these variables.
 
 
 ## Conclusion
