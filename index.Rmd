@@ -22,7 +22,7 @@ My research question is: How are respondent education level and gender related t
 
 ### Why is this important?
 
-Understanding how demographic characteristics like gender and education relate to vote choice is important because it helps explain the political opinions that shape electoral outcomes. The 2024 election was historically significant as the first major-party female presidential nominee faced a former president, making gender dynamics in citizen vote choice particularly relevant. Identifying which groups supported which candidate can inform how parties craft campaign messaging and policy platforms in future elections.
+Understanding how demographic characteristics like gender and education relate to vote choice is important because it helps explain the political opinions that shape electoral outcomes. The 2024 election was historically significant as the first major-party female presidential nominee faced a former president, making demographic patterns in citizen vote choice particularly relevant. Identifying which groups supported which candidate can inform how parties craft campaign messaging and policy platforms in future elections.
 
 ## Data
 
