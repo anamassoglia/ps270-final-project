@@ -9,6 +9,10 @@ output:
 ```{r}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+```{css, echo = FALSE}
+body { font-family: 'Times New Roman', serif; }
+```
+
 
 
 ## Introduction
@@ -86,7 +90,7 @@ education = factor(education, levels = c(
 ggplot(anes2024_clean, aes(x = factor(vote_dem, labels = c("Trump", "Harris")),
                             fill = factor(vote_dem, labels = c("Trump", "Harris")))) +
   geom_bar() +
-  scale_fill_manual(values = c("Trump" = "red", "Harris" = "blue")) +
+  scale_fill_manual(values = c("Trump" = "indianred1", "Harris" = "steelblue")) +
   labs(title = "Vote choice among ANES respondents with 
   complete education and gender data (n = 440)",
        x = "Candidate", y = "Number of respondents",
@@ -115,7 +119,7 @@ ggplot(gender_education_summary, aes(x = education, y = harris_pct, fill = gende
     fill = "Gender"
   ) +
   scale_y_continuous(limits = c(0, 100)) +
-  scale_fill_manual(values = c("Male" = "steelblue", "Female" = "indianred")) 
+  scale_fill_manual(values = c("Male" = "forestgreen", "Female" = "plum")) 
 ```
 Figure 2 displays Harris vote share broken down by education level and gender. Each bar represents the percentage of respondents in that education and gender group who voted for Harris. The dashed line at 50% indicates the threshold for majority support.
 
